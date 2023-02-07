@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jdev-web
+  namespace: justin
+spec:
+  rules:
+  - host: jdev.mac.edu
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: jdev-web
+            port:
+              number: 80
